@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Project1\Project1\test.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="for.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="function.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="training.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

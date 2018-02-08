@@ -67,9 +67,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Project1\Project1\test.c" />
     <ClCompile Include="for.c" />
     <ClCompile Include="function.c" />
+    <ClCompile Include="training.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

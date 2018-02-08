@@ -7,7 +7,7 @@
 char arr[3100][6200];
 void printstar();
 int main(){
-		
+
 	int n, i, j;
 	scanf("%d", &n);
 	//배열초기화
@@ -31,50 +31,26 @@ int main(){
 		printf("\n");
 	}
 }
-void printstar(int n,int x,int y){
+void printstar(int n, int x, int y){
 	if (n == 3){ //printstar(3,2,0)
 		arr[y][x] = '*';
 		arr[y + 1][x - 1] = '*';
 		arr[y + 1][x + 1] = '*';
 		arr[y + 2][x - 2] = '*';
 		arr[y + 2][x - 1] = '*';
-		arr[y + 2][x ] = '*';
+		arr[y + 2][x] = '*';
 		arr[y + 2][x + 1] = '*';
 		arr[y + 2][x + 2] = '*';
 
-		return ;
+		return;
 	}
-	
+
 	//printstar(n / 2, n - 1, 0);
 	//printstar(n / 2, (n/2) - 1, n/2);
 	//printstar(n / 2, 2*n-(n/2+1), n/2); 
 	printstar(n / 2, x, y);
-	printstar(n / 2, x -(n/2), y + (n / 2));
-	printstar(n / 2, x +(n/ 2), y + (n / 2));
+	printstar(n / 2, x - (n / 2), y + (n / 2));
+	printstar(n / 2, x + (n / 2), y + (n / 2));
 }
 
 
-//#include <stdio.h>
-//
-//int main(){
-//	/*별찍기2
-//	출력
-//	     *
-//	    **
-//	   ***
-//	*/
-//	int n;
-//	scanf("%d", &n);
-//	for (int i = 1; i <= n; i++){
-//		for (int j = n - 1; j >= i; j--){	//공백의 갯수하나씩 줄이기 -> j>=i
-//			printf(" ");
-//		}
-//		for (int k = 1; k <= i; k++){
-//			printf("*");
-//		}
-//		printf("\n");
-//
-//	}
-//	getchar();
-//	
-//}
