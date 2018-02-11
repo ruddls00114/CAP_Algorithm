@@ -4,7 +4,7 @@
 //재귀함수 이용
 
 
-char arr[3100][6200];
+char arr[6000][6200];
 void printstar();
 int main(){
 
@@ -48,7 +48,7 @@ void printstar(int n, int x, int y){
 	//printstar(n / 2, n - 1, 0);
 	//printstar(n / 2, (n/2) - 1, n/2);
 	//printstar(n / 2, 2*n-(n/2+1), n/2); 
-	printstar(n / 2, x, y);
+	printstar(n / 2, x, y); 
 	printstar(n / 2, x - (n / 2), y + (n / 2));
 	printstar(n / 2, x + (n / 2), y + (n / 2));
 }
