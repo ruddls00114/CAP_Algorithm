@@ -67,6 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Code.cpp" />
     <ClCompile Include="for.c" />
     <ClCompile Include="function.c" />
     <ClCompile Include="training.c" />
