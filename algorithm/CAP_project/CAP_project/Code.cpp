@@ -25,15 +25,28 @@ using namespace std;
 //		cout << a + b << endl;
 //	}
 //}
-//10952 입력이 0 0 이면 종료
-void main(){
-
+////10952 입력이 0 0 이면 종료
+//void main(){
+//
+//	int a, b;
+//
+//	while (1)
+//	{
+//		cin >> a >> b;
+//		if (a == 0 && b == 0) break;
+//		cout << a + b << endl;
+//	}
+//}
+//
+//10953 testcase주어짐 /입력 사이에 , 
+int main(){
+	int tc;
 	int a, b;
-
-	while (1)
+	cin >> tc;
+	while ( tc-- )
 	{
-		cin >> a >> b;
-		if (a == 0 && b == 0) break;
+		//cin >> a >> b;
+		scanf("%d , %d", &a, &b);
 		cout << a + b << endl;
 	}
 }
