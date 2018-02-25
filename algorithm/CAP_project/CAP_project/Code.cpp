@@ -59,16 +59,14 @@ using namespace std;
 //	}
 //	cout << sum;
 //}
-
 int main(){
-	int n, input,min = 0, max = 0;
+	int n, input,min = 1000000, max = -1000000;
 	cin >> n;
 	while (n--)
 	{
 		cin >> input;
 		if (input > min){
 			if (input > max)
-
 				max = input;
 		}
 		else{
@@ -78,3 +76,26 @@ int main(){
 		cout << min <<' '<< max << endl;
 }
 
+
+//int input[100];
+//int main(){
+//	int  n, input, min = 0, max = 0;
+//	cin >> n;
+//	while (n--)
+//	{
+//		cin >> input[n];
+//	}
+//	if (int i = n; i >= 0;i--){
+//		if (input[i] > min){
+//			if (input[i] > max)
+//
+//				max = input;
+//		}
+//		else{
+//			min = input;
+//		}
+//	}
+//	cout << min << ' ' << max << endl;
+//}
+//
+//
