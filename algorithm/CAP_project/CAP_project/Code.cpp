@@ -39,15 +39,42 @@ using namespace std;
 //}
 //
 //10953 testcase주어짐 /입력 사이에 , 
+//int main(){
+//	int tc;
+//	int a, b;
+//	cin >> tc;
+//	while ( tc-- )
+//	{
+//		//cin >> a >> b;
+//		scanf("%d , %d", &a, &b);
+//		cout << a + b << endl;
+//	}
+//}
+
+//int main(){
+//	int i,n,sum=0;
+//	cin >> n;
+//	for(i = 1; i <= n; i++){
+//		sum += i;
+//	}
+//	cout << sum;
+//}
+
 int main(){
-	int tc;
-	int a, b;
-	cin >> tc;
-	while ( tc-- )
+	int n, input,min = 0, max = 0;
+	cin >> n;
+	while (n--)
 	{
-		//cin >> a >> b;
-		scanf("%d , %d", &a, &b);
-		cout << a + b << endl;
+		cin >> input;
+		if (input > min){
+			if (input > max)
+
+				max = input;
+		}
+		else{
+			min = input;
+		}
 	}
+		cout << min <<' '<< max << endl;
 }
 
