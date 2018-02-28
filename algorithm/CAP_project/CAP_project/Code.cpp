@@ -1,17 +1,15 @@
 #include<iostream>
+#define IOFAST() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
 
 int main(){
-	//10818 - 최소최대
-	int n, input, min = 1000000, max = -1000000;
-	cin >> n;
-	while (n--)
-	{
+	//10039 - 평균점수
+	int n = 5,input,sum=0;
+	while (n--){
 		cin >> input;
-		if (input < min)
-			min = input;
-		if (input>max)
-			max = input;
+		if (input < 40) input = 40;
+		sum += input;
 	}
-	cout << min << ' ' << max << endl;
+	cout << (sum / 5);
+
 }
