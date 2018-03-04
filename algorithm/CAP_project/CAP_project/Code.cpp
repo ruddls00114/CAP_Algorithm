@@ -2,38 +2,21 @@
 #include<cstring>
 #define IOFAST() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
+int dp[2][1000];//dp[0][]->가장큰값 / dp[1][]->합
 
-long int a[90];
 int main(){
-	int n;
-	memset(a, 0, sizeof(a));
-	cin >> n;
-	a[0] = 0, a[1] = 1;
-	for (int i = 2; i <= n ; i++){
-		a[i ] = a[i -1] + a[i-2];
+	int n, v, temp = -1;
+	memset(dp, -1, sizeof(dp));
+	cin << n;
+	for (int j = 0; i < n; j++){
+		for (int i = 0; i < 2; i++){
+			if (i == temp)	break;
+			cin << v;
+			if (v>dp[0][i])	{
+				dp[0][i] = v;
+				temp = i;
+			}
+		}
+		dp[1][j] += dp[0][j];
 	}
-	cout << a[n];
 }
-/*
-2748 번 피보나치 수열 미완성 
-
-//top-down
-long int m[91];
-int r(int i);
-int main(){
-	int n;
-	memset(m, 0, sizeof(m));
-	scanf("%d", &n);
-	r(n);
-	printf("%lld",m[n]);
-}
-int r(int i){
-	if (m[i])
-		return m[i];
-	else if (i == 0 || i == 1)
-		return m[i] = i;
-	else
-		return m[i] = r(i - 1) + r(i - 2);
-
-}
-*/
