@@ -1,22 +1,42 @@
 ﻿#include<iostream>
 #include<cstring>
 #define IOFAST() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+#define min(a,b) a<b?a:b
 using namespace std;
-int dp[2][1000];//dp[0][]->가장큰값 / dp[1][]->합
+int dp[4][1002];
+int data[4][1002];
 
 int main(){
-	int n, v, temp = -1;
-	memset(dp, -1, sizeof(dp));
-	cin << n;
-	for (int j = 0; i < n; j++){
-		for (int i = 0; i < 2; i++){
-			if (i == temp)	break;
-			cin << v;
-			if (v>dp[0][i])	{
-				dp[0][i] = v;
-				temp = i;
-			}
+	int i, j, n, min;
+	//memset(data[],-1, sizeof(data));
+	//memset(dp, 0, sizeof(dp));
+
+	cin >> n;
+	for (j = 1; j <= n; j++){
+		for (i = 1; i <= 3; i++){
+			cin >> data[j][i];
 		}
-		dp[1][j] += dp[0][j];
 	}
+	for (j = 1; j <= n; j++){
+		if (j == 1){
+			dp[j][1] = data[j][1];
+			dp[j][2] = data[j][2];
+			dp[j][3] = data[j][3];
+			continue;
+		}
+		dp[j][1] = min(dp[j - 1][2] + data[j][1], dp[j - 1][3] + data[j][1]);
+		dp[j][2] = min(dp[j - 1][1] + data[j][2], dp[j - 1][3] + data[j][2]);
+		dp[j][3] = min(dp[j - 1][1] + data[j][3], dp[j - 1][2] + data[j][3]);
+
+	}
+
+
+	for (j = 1; j <= n; j++){
+		for (i = 1; i <= 3; i++){
+			cout << dp[j][i] << " ";
+		}
+		cout << endl;
+	}
+	min = min(min(dp[n][1], dp[n][2]), dp[n][3]);
+	cout << min;
 }
