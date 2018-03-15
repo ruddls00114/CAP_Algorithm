@@ -8,21 +8,28 @@ using namespace std;
 
 int main(){
 
-	int n, k, i, j;
-	cin >> n >> k;
-	int* dp = new int[k + 1];
-	int* values = new int[n + 1];
-	memset(dp, 0, sizeof(dp));
-	memset(values, 0, sizeof(values));
-	for (i = 1; i <= n; i++){
-		cin >> values[i];
+	int n, k, minNum = 0;
+	scanf("%d %d", &n, &k);
+	int* d = new int[n+1];
+	for (int i = 1; i <= n; i++){
+		scanf("%d", d + i);
 	}
-	dp[1] = 1;
-	for (i = 1; i <= n; i++){
-		for (j = 1; j <= k; j++){
-			if (j >= values[i])
-				dp[j] +=dp[j-values[i-1]];
+	for (int i = n; i >= 1; i--){
+		if (d[i]>k) continue;
+		else {  //d[i]<=k
+			minNum = minNum + (k / d[i]);
+			k = k % d[i];
+			printf("%d , %d ,%d \n", i, k, minNum);
+			if (k == 0) break;
+
 		}
+		// while (d[i]<= k){
+		// 	k = k - d[i];
+		// 	minNum++;
+		// 	printf("%d , %d \n", i, k);
+		// 	if (k == 0) break;
+		// }
 	}
-	cout << dp[k] << endl;
+	printf("%d", minNum);
+
 }
