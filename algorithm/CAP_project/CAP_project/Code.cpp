@@ -4,32 +4,30 @@
 #include<algorithm>
 
 using namespace std;
+int dp[10001];// 해빈이가 얻을 수 있는 최대 수익
+int data[10001];
+
+//void f(int n){
+//	int i;
+//	for (i = n; i >= 2; i++){
+//		dp[n] = max(dp[n], data[i - 1] + data[n - i + 1]);
+//	}
+//}
 
 
 int main(){
 
-	int n, k, minNum = 0;
-	scanf("%d %d", &n, &k);
-	int* d = new int[n+1];
-	for (int i = 1; i <= n; i++){
-		scanf("%d", d + i);
+	int n, i;
+	scanf("%d", &n);
+	for (i = 1; i <= n; i++){
+		scanf("%d", data+i);
+		dp[i] = data[i];
 	}
-	for (int i = n; i >= 1; i--){
-		if (d[i]>k) continue;
-		else {  //d[i]<=k
-			minNum = minNum + (k / d[i]);
-			k = k % d[i];
-			printf("%d , %d ,%d \n", i, k, minNum);
-			if (k == 0) break;
 
-		}
-		// while (d[i]<= k){
-		// 	k = k - d[i];
-		// 	minNum++;
-		// 	printf("%d , %d \n", i, k);
-		// 	if (k == 0) break;
-		// }
+	//printf("%d", dp[2]);
+	for (i = 2; i <=n; i++){
+		dp[n] = max(dp[n], (data[i - 1] + data[n - i + 1]));
 	}
-	printf("%d", minNum);
 
+	printf("%d", dp[n]);
 }
