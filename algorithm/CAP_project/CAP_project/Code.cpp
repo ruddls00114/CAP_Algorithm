@@ -10,7 +10,7 @@
 int dp[301];
 int main(){
 
-	int n, i;
+	int n, i,re=0;
 	scanf("%d", &n);
 	int* data = new int[n+1];
 	memset(data, 0, sizeof(data));
@@ -18,16 +18,25 @@ int main(){
 		scanf("%d", data+i);
 
 	dp[1] = data[1];
-	
-	for (i = 2; i < n; i++){
-		//dp[i] = max(dp[i - 1] + dp[i - 2], dp[i - 2] + dp[i]);
-//		dp[i] = dp[i - 1] + data[i] > dp[i - 1] + data[i + 1] ? dp[i - 1] + data[i] : dp[i - 1];
-		dp[i] = dp[i - 1] + data[i] > dp[i - 1] + data[i + 1] ? dp[i - 1] + data[i] : dp[i - 1];
+	dp[2] = data[1] + data[2];
+	//1 2 3 4 5 6  dp[n]은 max(data[n]+dp[n-3]+data[n-1] , data[n]+dp[n-2])
+	//1 3 5 8 10
+	for (i = 3; i <= n; i++){
 
+		dp[i] = max(data[i] + dp[i - 3] + data[i - 1], data[i] + dp[i - 2]);
+
+		//if (dp[i - 1] + data[i] > dp[i - 1] + data[i + 1] && re!=3){	//연속
+		//	dp[i] = dp[i - 1] + data[i];
+		//	re++;
+		//}
+		//else{
+		//	dp[i] = dp[i - 1];
+		//	re = 0;
+		//}
 			printf("dp[%d] --> %d \n", i, dp[i]);
 	}
 
-	dp[n] = data[n] + dp[n - 1];
+	//dp[n] = max(dp[n - 1] + data[n], dp[n - 2] + data[n]);
 	printf("%d", dp[n]);
 
 }
