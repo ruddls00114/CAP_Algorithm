@@ -4,25 +4,32 @@
 #include<math.h>
 #define IOFAST() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
-long long int gcd(long long int h, long long int l);
+int gcd(int h, int l);
 int main(){
-	long long int arr[2], gcdNum;
-	int i;
-	for (i = 0; i < 2; i++){
+	int t, h, l, q1, q2;
+	int gcdNum,tmp;
+	int* arr;
+	cin >> t;
+	arr = new int[t];
+	for (int i = 0; i < t; i++){
 		cin >> arr[i];
 	}
-	gcdNum = gcd(arr[0], arr[1]);
-	for (i = 1; i <= gcdNum; i++){
-		cout << "1";
+	for (int i = 1; i < t; i++){
+		h = arr[0];
+		l = arr[i];
+		//if (h < l){
+		//	tmp = h;
+		//	h = l;
+		//	l = tmp;
+		//}
+		gcdNum = gcd(h, l);
+		//q1 = arr[0]/gcdNum;		q2 = arr[i]/gcdNum;
+		cout << arr[0] / gcdNum << "/" << arr[i] / gcdNum << endl;
+
 	}
 }
-long long gcd(long long int h, long long int l){
-	long long int r, tmp;
-	if (h < l){
-		tmp = h;
-		h = l;
-		l = tmp;
-	}
+int gcd( int h, int l){
+	int r;
 	do{
 		r = h%l;
 		h = l;
