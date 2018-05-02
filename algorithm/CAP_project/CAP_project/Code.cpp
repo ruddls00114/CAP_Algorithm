@@ -1,41 +1,39 @@
 ﻿#include<iostream>
-#include<cstring>
-#include<algorithm>
-
+#include<string>
+#include<stack>
 #define IOFAST() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-
 using namespace std;
+
 int main(){
 	IOFAST();
-	int t, i, j;
-	int a, b;
-	cin >> t;
-	for (i = 0; i < t; i++){
-		int n, k, w;
-		cin >> n >> k;
-		int * d = new int[n + 1];
-		int * dp = new int[n + 1];
-		memset(dp, 0, sizeof(dp));
 
-		for (j = 1; j <= n; j++){
-			cin >> d[j];
-			dp[j] = d[j];
-		}
-
-		for (j = 1; j <= k; j++){
-			int temp;
-			cin >> a >> b;
-		/*	if(a>b){
-				temp = a;
-				a = b;
-				b = temp;
-			}*/
-			dp[b] = max((dp[a] + d[b]), dp[b]);
-		}
-		cin >> w;
-		cout << dp[w] << '\n';
-
-	}//for t
+	int t, j, cnt = 0;
+	string str;
+	stack<char> st;
+		str = "";
+		cin >> str;
+		for (j = 0; j<str.length(); j++){
+			if (str[j] == '('){
+				st.push(j);
+			}
+			else {		//(str[j] == ')')
+				if (st.empty())	{
+					st.push(j);
+					st.pop();
+					
+				}
+				else if (j - 1 == st.top()){ //레이저
+					st.pop();
+					cnt += st.size();
+				}
+				else{
+					st.pop();
+					cnt += 1;
+				}
+			}
+		} //for
+		cnt = st.size() + cnt;
+		cout << cnt << '\n';
 
 	return 0;
 }
