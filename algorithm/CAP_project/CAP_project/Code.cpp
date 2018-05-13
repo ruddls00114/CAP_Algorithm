@@ -1,55 +1,29 @@
 ﻿#include<iostream>
-#include<vector>
-#include<queue>
-#include<utility>
 #include<algorithm>
+#include<cstring>
+#include<functional>
 #define IOFAST() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
 
 int main(){
 	IOFAST();
+	int i, n, min = 10000, result = 0;
+	int*a, *b;
+	cin >> n;
+	a = new int[n];
+	b = new int[n];
+	for (i = 0; i < n; i++)
+		cin >> *(a + i);
+	for (i = 0; i < n; i++)
+		cin >> *(b + i);
+	sort(a, a + n);
+	sort(b, b + n, greater<int>());
 
-	int i, testcase;
-
-
-	cin >> testcase;
-	for (i = 0; i < testcase; i++){
-
-		int  j, k, n, m, imp, cnt = 0,flag=0;
-		queue <pair<int, int>> q;
-		vector<int> v;
-		cin >> n >> m;
-		for (j = 0; j < n; j++){
-			cin >> imp;
-			v.push_back(imp);
-			q.push(make_pair(j, imp));
-		}
-		sort(v.rbegin(), v.rend());
-		for (k = 0;  k < v.size() || flag==1 ; k++){
-			for (j = 0; j < q.size(); j++){
-				if (v[k] == q.front().second){
-					cnt++;
-					if (m == q.front().first){
-						cout << cnt << '\n';
-						flag = 1;
-					}
-					q.pop();
-					break;
-				}
-				else{	// 최대값의중요도가 아닐때 다시 큐에 삽입
-					int a, b;
-					a = q.front().first;
-					b = q.front().second;
-					q.pop();
-					q.push(make_pair(a, b));
-				}
-			}
-		}
-		getchar();
-	}//case
-
-
-
+	for (i = 0; i < n; i++){
+		result += a[i] * b[i];
+	}
+	
+	cout << result;
 
 	return 0;
 
