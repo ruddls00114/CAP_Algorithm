@@ -5,19 +5,10 @@
 using namespace std;
 int main(){
 	IOFAST();
-	int n, cnt = 0 ,k =500,flag=0;// flag =0 -> 5%%, 1 ->1&&
-	cin >> n;
-	n = 1000 - n;
-	while (n > 0){
-		cnt += n / k;
-		n -= (n / k)*k;
-		if (flag == 0) {
-			k /= 5; flag = 1;
-		}
-		else {
-			k /= 2; flag = 0;
-		}
-	}
-	cout << cnt;
+	int a, b, v, end = 0, day = 0;;
+	cin >> a >> b >> v;
+	v = v - b;
+	day = v % (a - b) ? v / (a - b) + 1 : v / (a - b) ;
+	cout << day;
 	return 0;
 }
